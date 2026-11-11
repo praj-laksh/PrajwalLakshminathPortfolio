@@ -409,3 +409,21 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 }
 .social-panel a.lets-talk,.social-panel a.lets-talk:hover{width:auto;height:auto;background:none;border-radius:0;transform:none;display:flex;place-items:initial}
 [data-theme="dark"] .social-panel a.lets-talk{background:none}
+
+/* --- awards: 3 per row so any number of awards lines up neatly --- */
+.awards{grid-template-columns:repeat(3,1fr)}
+.awards div{padding:22px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.awards div:nth-child(3n){border-right:0}
+.awards div:nth-child(3n+1){padding-left:0}
+.awards div:nth-last-child(-n+3):nth-child(3n+1),.awards div:nth-last-child(-n+3):nth-child(3n+1)~div{border-bottom:0}
+.awards div:last-child{border-right:0;border-bottom:0}
+@media(max-width:700px){
+  .awards{grid-template-columns:1fr 1fr}
+  .awards div{padding:18px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .awards div:nth-child(3n){border-right:1px solid var(--line)}
+  .awards div:nth-child(3n+1){padding-left:14px}
+  .awards div:nth-last-child(-n+3):nth-child(3n+1),.awards div:nth-last-child(-n+3):nth-child(3n+1)~div{border-bottom:1px solid var(--line)}
+  .awards div:nth-child(odd){padding-left:0}
+  .awards div:nth-child(even){border-right:0}
+  .recognition .awards div:nth-last-child(-n+2):nth-child(odd),.recognition .awards div:nth-last-child(-n+2):nth-child(odd)~div{border-bottom:0}
+}
